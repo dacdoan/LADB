@@ -1,0 +1,20 @@
+
+name: APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: sparkfabrik/android-build-action@v1.0.0
+        with:
+          project-path: .
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: output.apk
